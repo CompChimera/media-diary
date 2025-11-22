@@ -9,9 +9,10 @@ const mediaList = getMedias();
 //   if (true) {
 //     return <div>Loading...</div>;
 //   }
-// function filter(mediaType) {
-
-// }
+function filter(mediaType) {
+  //TODO filter is working, list isn't updating yet
+mediaList.filter((media)=> {return media.media_type_id === mediaType});
+}
 
 
   return (
@@ -19,10 +20,11 @@ const mediaList = getMedias();
       <h2 className="diary-title">Diary Contents</h2>
       <button></button>
       <div className="filters">
-        <button onClick="filter('audiobook')">Audiobooks</button>
-        <button onClick="filter('book')">Books</button>
-        <button onClick="filter('show')">Shows</button>
-        <button onClick="filter('movie')">Movies</button>
+        <button onClick={() => filter(1)}>Audiobooks</button>
+        <button onClick={() => filter(2)}>Books</button>
+        <button onClick={() => filter(4)}>Shows</button>
+        <button onClick={() => filter(5)}>Movies</button>
+        <button onClick={() => filter(3)}>Anime</button>
       </div>
       
         {/* {mediaList} */}
