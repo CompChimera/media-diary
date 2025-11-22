@@ -3,12 +3,17 @@
   color: #333;
 }
 
+:root {
+  --htm-bg-1: #81a69b;
+  --htm-bg: #e4e4fa;
+}
+
 body {
-  background-color: #81a69b;
+  background-color: var(--htm-bg);
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100%;
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 }
 html {
     /* margin: 0; */
@@ -98,6 +103,7 @@ html {
 
 header > a,
 #root > div > h1 {
+  font-family: "Playwrite NZ Guides", cursive;
   display: inline-block;
   filter: brightness(150%);
   width: 279px;
@@ -127,15 +133,16 @@ header a {
 header {
   display: flex;
   align-content: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 1100px;
-  margin: 0 auto;
+  margin: 0 auto 30px;
   padding: 20px 0px 0px 0px;
 }
 
 header h1 {
   display: flex;
   flex-direction: row;
+  font-family: "Playwrite NZ Guides", cursive;
 }
 
 header h1 img {
@@ -154,17 +161,94 @@ main {
 .media-card {
     padding: 30px 20px;
     /* background-color: rgba(255, 255, 255, 0.5); */
-    border-radius: 8px;
+    border-radius: 16px;
+    position: relative;
+}
+
+.media-card .media-edit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+  padding: 5px;
+}
+
+.media-edit:hover {
+  box-shadow: 0 0 0 2px #8f90a7, 0 0 0 7px #ffffff;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
 }
 
 .media-form .media-card {
     display: flex;
     flex-direction: column;
+
+}
+
+.diary {
+
+}
+
+.diary-title {
+  text-align: center;
+}
+
+.footer {
+  padding: 40px 20px;
+  background-color: #e0bff2;
+  margin-top: 40px; 
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  /* text-decoration: underline; */
+  color: var(--c1);
+  transition: color ease;
+}
+/* 
+.footer-links a:hover {
+  text-decoration: none;
+  color: var(--c0);
+} */
+
+.footer-links a {
+  display: inline-block;
+  position: relative;
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--c1);
+  transform-origin: bottom center;
+  transition: transform 0.25s ease-out;
+}
+.footer-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom center;
 }
 .card-wrapper {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+}
+
+.card-wrapper li {
+  border-radius: 16px;
+  max-width: 40%;
 }
 
 .details p {
@@ -182,6 +266,7 @@ main {
 .details h2 {
   text-align: center;
   margin: 5px 0px 20px 0px;
+  font-family: "Playwrite NO", cursive;
 }
 
 .carousel {
@@ -299,6 +384,7 @@ h1 {
 
 h2 {
   font-size: 2rem;
+  font-family: "Playwrite NO", cursive;
 }
 
 form label {
@@ -309,6 +395,7 @@ form label {
 @media only screen and (max-width: 1129px) {
   header {
     display: flex;
+    flex-direction: column;
     align-content: center;
     justify-content: center;
     width: 95%;
@@ -425,6 +512,7 @@ form .pet {
 .filters {
   gap: 5px;
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: center;
   margin: 20px 0;
@@ -437,6 +525,7 @@ form .pet {
   /* background-color: #3c8d82; */
   font-weight: bold;
   font-size: 18px;
+  font-family: "Delius", cursive;
 }
 
 .button {
@@ -447,6 +536,7 @@ form .pet {
   /* background-color: #3c8d82; */
   font-weight: bold;
   font-size: 18px;
+  font-family: "Delius", cursive;
 }
 
 .nav {

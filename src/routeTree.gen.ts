@@ -16,11 +16,17 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
+const NewLazyImport = createFileRoute('/new')()
 const MediaLazyImport = createFileRoute('/media')()
 const AdminLazyImport = createFileRoute('/admin')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
+
+const NewLazyRoute = NewLazyImport.update({
+  path: '/new',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/new.lazy').then((d) => d.Route))
 
 const MediaLazyRoute = MediaLazyImport.update({
   path: '/media',
@@ -62,6 +68,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MediaLazyImport
       parentRoute: typeof rootRoute
     }
+    '/new': {
+      id: '/new'
+      path: '/new'
+      fullPath: '/new'
+      preLoaderRoute: typeof NewLazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -71,12 +84,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
   '/admin': typeof AdminLazyRoute
   '/media': typeof MediaLazyRoute
+  '/new': typeof NewLazyRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
   '/admin': typeof AdminLazyRoute
   '/media': typeof MediaLazyRoute
+  '/new': typeof NewLazyRoute
 }
 
 export interface FileRoutesById {
@@ -84,14 +99,15 @@ export interface FileRoutesById {
   '/': typeof IndexLazyRoute
   '/admin': typeof AdminLazyRoute
   '/media': typeof MediaLazyRoute
+  '/new': typeof NewLazyRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/media'
+  fullPaths: '/' | '/admin' | '/media' | '/new'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin' | '/media'
-  id: '__root__' | '/' | '/admin' | '/media'
+  to: '/' | '/admin' | '/media' | '/new'
+  id: '__root__' | '/' | '/admin' | '/media' | '/new'
   fileRoutesById: FileRoutesById
 }
 
@@ -99,12 +115,14 @@ export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
   AdminLazyRoute: typeof AdminLazyRoute
   MediaLazyRoute: typeof MediaLazyRoute
+  NewLazyRoute: typeof NewLazyRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   AdminLazyRoute: AdminLazyRoute,
   MediaLazyRoute: MediaLazyRoute,
+  NewLazyRoute: NewLazyRoute,
 }
 
 export const routeTree = rootRoute
@@ -121,7 +139,8 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/admin",
-        "/media"
+        "/media",
+        "/new"
       ]
     },
     "/": {
@@ -132,6 +151,9 @@ export const routeTree = rootRoute
     },
     "/media": {
       "filePath": "media.lazy.jsx"
+    },
+    "/new": {
+      "filePath": "new.lazy.jsx"
     }
   }
 }

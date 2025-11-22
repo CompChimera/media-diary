@@ -9,6 +9,7 @@ export const getMedias = () => {
     async function fetchMedias() {
       const response = await fetch("/api/medias");
       const data = await response.json();
+      console.log(data);
       setMedias(data);
     }
 

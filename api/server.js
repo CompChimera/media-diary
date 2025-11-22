@@ -65,7 +65,7 @@ server.get("/api/media_types", async function getMediaTypes(req, res) {
 
 server.get("/api/medias", async function getMedias(req, res) {
   const id = req.query.id;
-  const medias = await db.all("SELECT id, name, description, repetitions FROM media");
+  const medias = await db.all("SELECT id, name, description, repetitions, media_type_id, inprogress, platform_id FROM media");
 
   res.send(medias);
 });

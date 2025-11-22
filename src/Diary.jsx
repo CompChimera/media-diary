@@ -9,15 +9,20 @@ const mediaList = getMedias();
 //   if (true) {
 //     return <div>Loading...</div>;
 //   }
+// function filter(mediaType) {
+
+// }
+
+
   return (
     <div className="diary">
-      <h2>Diary Contents:</h2>
+      <h2 className="diary-title">Diary Contents</h2>
       <button></button>
       <div className="filters">
-        <button>Audiobooks</button>
-        <button>Books</button>
-        <button>Shows</button>
-        <button>Movies</button>
+        <button onClick="filter('audiobook')">Audiobooks</button>
+        <button onClick="filter('book')">Books</button>
+        <button onClick="filter('show')">Shows</button>
+        <button onClick="filter('movie')">Movies</button>
       </div>
       
         {/* {mediaList} */}
@@ -29,8 +34,8 @@ const mediaList = getMedias();
     <ul className="card-wrapper" style={{listStyle: 'none'}}>
         {mediaList ? (
             mediaList.map((item)=> (
-            <li className="bg-white  shadow-md rounded mb-4" key={item.id}>
-                <Media name={item.name} description={item.description} type="Missing" status="Missing" platform="Missing"/>
+            <li className="bg-white  shadow-md  mb-4" key={item.id}>
+                <Media id={item.id} name={item.name} description={item.description} type={item.media_type_id} status={item.inprogress} platform={item.platform_id} />
             </li>
             ))
         ) : (
