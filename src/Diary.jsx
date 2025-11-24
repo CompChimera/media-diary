@@ -11,7 +11,11 @@ const mediaList = getMedias();
 //   }
 function filter(mediaType) {
   //TODO filter is working, list isn't updating yet
-mediaList.filter((media)=> {return media.media_type_id === mediaType});
+  let mediaObjs = document.querySelectorAll(".card-wrapper li");
+  let filteredMedia = mediaList.filter((media)=> {return media.media_type_id === mediaType});
+
+  
+
 }
 
 

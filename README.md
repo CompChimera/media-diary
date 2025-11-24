@@ -41,3 +41,6 @@ Using react and SQLite
 First iteration icons taken from:
 https://www.flaticon.com/packs/teenager-27 
 https://www.flaticon.com/free-icon/pencil_351049?term=pencil&related_id=351049 
+
+### Link Transition
+https://www.30secondsofcode.org/css/s/hover-underline-animation/ 

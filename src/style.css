@@ -19,6 +19,9 @@ html {
     /* margin: 0; */
     height: 100%;
 }
+p {
+  font-size: 1.3rem;
+}
 /* 
 .search-params {
   width: 1100px;
@@ -97,8 +100,9 @@ html {
   text-overflow: ellipsis;
 }
 :root {
-  --c1: #359486;
-  --c0: #2b665e;
+  --c2: #5353DF;
+  --c1: #8686E9;
+  --c0: #6464E3;
 }
 
 header > a,
@@ -134,7 +138,8 @@ header {
   display: flex;
   align-content: center;
   justify-content: space-between;
-  width: 1100px;
+  /* width: 1100px; */
+  max-width: 90%;
   margin: 0 auto 30px;
   padding: 20px 0px 0px 0px;
 }
@@ -210,7 +215,7 @@ main {
 
 .footer-links a {
   /* text-decoration: underline; */
-  color: var(--c1);
+  color: var(--c2);
   transition: color ease;
 }
 /* 
